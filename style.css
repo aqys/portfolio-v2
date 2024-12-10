@@ -1,0 +1,321 @@
+:root {
+    --background-color: #0D0D0D;
+    --text-color: #fff;
+    --border-color: #404040;
+    --grid-item-bg: #181818;
+    --grid-item-border: #272727;
+    --svg-fill: #bbbbbb81;
+    --svg-hover-fill: #fff;
+    --svg-hover-shadow: #ffffff56;
+    --icon-moon-color: #fff;
+    --icon-moon-hover-color: #ffffff9c;
+    --icon-sun-color: #000;
+    --icon-sun-hover-color: #5c5c5cc2;
+    --box-shadow-color: #00000013;
+    --box1-color: rgba(31, 31, 31, 1);
+    --box2-color: rgba(20, 20, 20, 1);
+    --box3-color: rgba(15, 15, 15, 1);
+    --nav-button-color: #252525;
+    --nav-button-color-hover: #1E1E1E;
+    --nav-container-color: rgb(20, 20, 20);
+    --nav-container-border-color: rgb(10, 10, 10);
+}
+
+.light-theme {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #cccccc;
+    --grid-item-bg: #f0f0f0;
+    --grid-item-border: #dddddd;
+    --svg-fill: #1f1f1fbe;
+    --svg-hover-fill: #000;
+    --svg-hover-shadow: #00000056;
+    --icon-moon-color: #fff;
+    --icon-moon-hover-color: #ffffff9c;
+    --icon-sun-color: #000;
+    --icon-sun-hover-color: #5c5c5cc2;
+    --box-shadow-color: #00000013;
+    --box1-color: rgba(240, 240, 240, 1);
+    --box2-color: rgba(230, 230, 230, 1);
+    --box3-color: rgba(220, 220, 220, 1);
+    --nav-button-color: #e0e0e0;
+    --nav-button-color-hover: #d0d0d0;
+    --nav-container-color: rgb(240, 240, 240);
+    --nav-container-border-color: rgb(220, 220, 220);
+}
+
+.dark-theme {
+    --background-color: #0D0D0D;
+    --text-color: #fff;
+    --border-color: #404040;
+    --grid-item-bg: #181818;
+    --grid-item-border: #272727;
+    --svg-fill: #bbbbbb81;
+    --svg-hover-fill: #fff;
+    --svg-hover-shadow: #ffffff56;
+    --icon-moon-color: #fff;
+    --icon-moon-hover-color: #ffffff9c;
+    --icon-sun-color: #000;
+    --icon-sun-hover-color: #5c5c5cc2;
+    --box-shadow-color: #ffffff13;
+    --box1-color: rgba(31, 31, 31, 1);
+    --box2-color: rgba(20, 20, 20, 1);
+    --box3-color: rgba(15, 15, 15, 1);
+    --nav-button-color: #252525;
+    --nav-button-color-hover: #1E1E1E;
+    --nav-container-color: rgb(20, 20, 20);
+    --nav-container-border-color: rgb(10, 10, 10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    font-family: 'JetBrains Mono', monospace;
+    display: grid;
+    place-content: center;
+    transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+p {
+    font-size: 1.25vw;
+}
+
+h1 {
+    font-size: 2.25vw;
+}
+
+.container {
+    background-color: var(--background-color);
+    border: var(--border-color) solid 0.15vw;
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 100rem;
+    margin: 1rem;
+    display: grid;
+    grid-auto-columns: 1fr;
+    gap: 1rem;
+    grid-template-areas: 
+    "box1 box1 box2 box3 box4"
+    "box5 box6 box6 box7 box11"
+    "box8 box8 box9 box10 box11";
+    transition: all 250ms ease;
+    box-shadow: 0 0 25rem 2.5rem var(--box-shadow-color);
+}
+
+.grid-item {
+    background-color: var(--grid-item-bg);
+    border: var(--grid-item-border) solid 0.15vw;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 250ms ease;
+}
+
+.grid-item-1 {
+    grid-area: box1;
+}
+
+.grid-item-2 {
+    grid-area: box2;
+}
+
+.grid-item-3 {
+    grid-area: box3;
+}
+
+.grid-item-4 {
+    grid-area: box4;
+    background-color: transparent;
+    border: none;
+}
+
+.grid-item-5 {
+    grid-area: box5;
+}
+
+.grid-item-6 {
+    grid-area: box6;
+}
+
+.grid-item-7 {
+    grid-area: box7;
+}
+
+.grid-item-8 {
+    grid-area: box8;
+}
+
+.grid-item-9 {
+    grid-area: box9;
+}
+
+.grid-item-10 {
+    grid-area: box10;
+}
+
+.grid-item-11 {
+    grid-area: box11;
+}
+
+.nested-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    height: 110%;
+    width: 100%;
+    transition: all 250ms ease;
+}
+
+.nested-item {
+    background-color: var(--grid-item-bg);
+    border: var(--grid-item-border) solid 0.15vw;
+    width: 4vw;
+    height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    padding: 0;
+    transition: all 250ms ease;
+}
+
+svg {
+    width: 2vw;
+    height: 2vw;
+    fill: var(--svg-fill);
+    display: block;
+    margin: auto;
+    transition: all 250ms ease;
+}
+
+svg:hover {
+    cursor: pointer;
+    fill: var(--svg-hover-fill);
+    filter: drop-shadow(0 0 0.5rem var(--svg-hover-shadow));
+}
+
+.icon--moon svg {
+    fill: var(--svg-fill);
+    transition: fill 250ms ease;
+}
+
+.icon--moon svg:hover {
+    fill: var(--svg-hover-fill);
+}
+
+.icon--sun svg {
+    fill: var(--svg-fill);
+    transition: fill 250ms ease;
+}
+
+.icon--sun svg:hover {
+    fill: var(--svg-hover-fill);
+}
+
+.toggle {
+    background-color: var(--grid-item-bg);
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 1rem 0.15rem var(--box-shadow-color);
+    line-height: 1;
+    transition: all 250ms ease;;
+}
+  
+.input {
+    display: none;
+}
+  
+.icon {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    transition: transform 400ms;
+}
+  
+.icon--sun {
+    transform: scale(0);
+}
+  
+#switch:checked + .icon--moon {
+    transform: rotate(360deg) scale(0);
+}
+  
+#switch:checked ~ .icon--sun {
+    transition-delay: 200ms;
+    transform: scale(1) rotate(360deg);
+}
+
+.test {
+    position: absolute;
+    margin-left: 95.5vw;
+    margin-top: 1.5vh;
+}
+
+.nav-container {
+    background-color: var(--nav-container-color);
+    border-radius: 1rem;
+    width: 22vw;
+    height: 7vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 250ms ease;
+    border: var(--nav-container-border-color) solid 1px;
+    position: absolute;
+    margin-left: 20vw;
+    margin-top: -28.5vh;
+}
+
+.nav-button {
+    position: relative;
+    background-color: var(--nav-button-color);
+    border-radius: 1rem;
+    width: 6.5vw;
+    height: 5vh;
+    border-width: 0;
+    cursor: pointer;
+    transition: all 250ms ease;
+    box-shadow: inset 1px 2px 3px 0px var(--box1-color), inset -1px -2px 3px 0px var(--box2-color), 0px 0px 0px 2px var(--box3-color);
+    opacity: 1;
+}
+
+.nav-button:hover {
+    background-color: var(--nav-button-color-hover);
+}
+
+.nav-button:active {
+    background-color: #D03216;
+    box-shadow: inset 0px 2px 2px 0px rgb(233, 75, 47), inset 0px -1px 2px 1px rgb(185, 44, 19), 0px 0px 0px 2px rgb(15, 15, 15);
+}
+
+.nav-text {
+    font-size: 0.8vw;
+    font-weight: 600;
+    color: var(--icon-moon-hover-color);
+    transition: color 250ms ease;
+}
+
+.nav-text:hover {
+    color: var(--icon-moon-color);
+}
